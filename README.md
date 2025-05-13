@@ -33,3 +33,18 @@ python manage.py migrate
 ```bash
 python manage.py runserver
 ```
+
+
+## If I had more time...
+
+I would write tests and think about more edge cases that should be handled.  
+
+## To prevent location spam...
+
+Upon receiving new ping I would check time span from the last ping received by this device. If the time span was shorter
+than X, I would not save the ping to db. Such an event would be logged for further check.
+
+Another idea would be counting pings within half an hour and sending error log if the number of pings exceeded set limit. 
+This would limit error logs from the first idea to just one in a half hour, but would extend staff reaction time.
+
+
